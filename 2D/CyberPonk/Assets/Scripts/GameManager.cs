@@ -6,14 +6,17 @@ public class GameManager : MonoBehaviour
 {
     public float HELICOPTER_SPAWN_TIME = 2f;
     public GameObject Helicopter;
+    public BoxCollider2D ground;
 
     public static GameManager instance;
 
+    
+    public float helicopterSpawnXMin;
+    public float helicopterSpawnXMax;
+    public float helicopterSpawnYMin;
+    public float helicopterSpawnYMax;
+
     Camera cam;
-    private float helicopterSpawnXMin;
-    private float helicopterSpawnXMax;
-    private float helicopterSpawnYMin;
-    private float helicopterSpawnYMax;
     private float helicopterSpawnTime = 0;
     private void Awake()
     {
@@ -29,6 +32,9 @@ public class GameManager : MonoBehaviour
         helicopterSpawnXMax = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0)).x + 0.5f;
         helicopterSpawnYMax = cam.ScreenToWorldPoint(new Vector3(0, Screen.height)).y;
         helicopterSpawnYMin = cam.ScreenToWorldPoint(new Vector3(0, Screen.height)).y - 2;
+
+        ground.size = new Vector2(cam.ScreenToWorldPoint(new Vector3(Screen.width, 0)).x * 3f, 1f);
+        ground.offset = new Vector2(0, -cam.ScreenToWorldPoint(new Vector3(0, Screen.height)).y - 0.5f);
     }
 
     void Update()
