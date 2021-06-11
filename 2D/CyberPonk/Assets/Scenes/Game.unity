@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a4302d5f31b884cb2fdb5ac8a64fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HELICOPTER_SPAWN_TIME: 0.5
+  HELICOPTER_SPAWN_TIME: 2
   Helicopter: {fileID: 5177752981790272886, guid: ffbdd2b616951924d8477b4bc0ddcd52, type: 3}
   ground: {fileID: 98836821}
   helicopterSpawnXMin: 0

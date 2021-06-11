@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -34,8 +32,6 @@ public class Bullet : MonoBehaviour
                 rb.AddForce(force * BULLET_SPEED, ForceMode2D.Impulse);
             }
         }
-        
-        
     }
 
     private void OnBecameInvisible()

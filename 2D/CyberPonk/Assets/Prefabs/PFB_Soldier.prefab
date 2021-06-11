@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6365207632767459431}
   rb: {fileID: 6365207632767459434}
+  bc: {fileID: 6365207632767459435}
   RUN_SPEED: 2
   FLY_SPEED: 2
 --- !u!61 &6365207632767459435
@@ -160,7 +161,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
