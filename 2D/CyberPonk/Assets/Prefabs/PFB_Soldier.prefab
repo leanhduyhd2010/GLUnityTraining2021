@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6365207632767459431}
   rb: {fileID: 6365207632767459434}
-  bc: {fileID: 6365207632767459435}
+  bounce: {fileID: 6200000, guid: d826fb271f854e945958d6d84972fa6b, type: 2}
   RUN_SPEED: 2
   FLY_SPEED: 2
 --- !u!61 &6365207632767459435

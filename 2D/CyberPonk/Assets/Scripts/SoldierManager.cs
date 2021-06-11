@@ -6,7 +6,7 @@ public class SoldierManager : MonoBehaviour
 {
     public Animator animator;
     public Rigidbody2D rb;
-    public BoxCollider2D bc;
+    public PhysicsMaterial2D bounce;
     public float RUN_SPEED = 2f;
     public float FLY_SPEED = 2f;
 
@@ -44,13 +44,19 @@ public class SoldierManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isFlying = false;
+            if (isGetHit)
+            {
+                gameObject.layer = 7; // DeadEnemy layer
+            }
         }
         else if (collision.gameObject.CompareTag("Bullet"))
         {
             rb.gravityScale = 1;
             rb.mass = 100;
-            gameObject.layer = 7; // DeadEnemy layer
+            gameObject.layer = 8; // FallingEnemy layer
+            animator.SetBool("Dead", true);
             isGetHit = true;
+            rb.sharedMaterial = bounce;
         }
     }
 }
