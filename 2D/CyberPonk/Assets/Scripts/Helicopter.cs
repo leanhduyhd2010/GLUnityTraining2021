@@ -6,6 +6,7 @@ public class Helicopter : MonoBehaviour
 {
     public float SPEED = 5f;
     public GameObject soldier;
+    public GameObject explosion;
 
 
     Vector3 direction;
@@ -41,6 +42,9 @@ public class Helicopter : MonoBehaviour
     {
         Destroy(gameObject);
         Destroy(collision.gameObject);
+        GameObject expl = Instantiate(explosion, transform.position, transform.rotation);
+        Destroy(expl, 0.6f);
+
     }
 
     private void OnBecameInvisible()
