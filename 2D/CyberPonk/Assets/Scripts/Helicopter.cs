@@ -7,6 +7,7 @@ public class Helicopter : MonoBehaviour
     public float SPEED = 5f;
     public GameObject soldier;
     public GameObject explosion;
+    public GameObject fragments;
 
 
     Vector3 direction;
@@ -43,6 +44,7 @@ public class Helicopter : MonoBehaviour
         Destroy(gameObject);
         Destroy(collision.gameObject);
         GameObject expl = Instantiate(explosion, transform.position, transform.rotation);
+        Instantiate(fragments, transform.position, transform.rotation);
         Destroy(expl, 0.6f);
 
     }

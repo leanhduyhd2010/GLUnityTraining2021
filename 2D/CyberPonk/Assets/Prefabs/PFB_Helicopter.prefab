@@ -146,3 +146,4 @@ MonoBehaviour:
   SPEED: 5
   soldier: {fileID: 6365207632767459430, guid: cd983e5e10245864b828b3eb406b5a8d, type: 3}
   explosion: {fileID: 1351648948998980991, guid: 0de454b3d24954444971aa62cc783bb4, type: 3}
+  fragments: {fileID: 1960477085967743956, guid: 3e9d5edf5abfbc64e97eb95a52b37e2a, type: 3}
