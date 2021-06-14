@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class GameManager : MonoBehaviour
     public BoxCollider2D ground;
     public GameObject scoreBoard;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI deathScoreText;
+    public GameObject blackPanel;
+    public GameObject gameoverUI;
 
     public static GameManager instance;
 
@@ -20,6 +24,7 @@ public class GameManager : MonoBehaviour
     public float helicopterSpawnYMax;
 
     public float score = 0;
+    public bool isGameOver = false;
     Camera cam;
     private float helicopterSpawnTime = 0;
     
@@ -45,15 +50,31 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = score.ToString();
-
-        if (helicopterSpawnTime < 0)
+        if (!isGameOver)
         {
+            scoreText.text = score.ToString();
 
-            Instantiate(Helicopter, new Vector3(Random.Range(0f, 1f) > 0.5 ? helicopterSpawnXMax : helicopterSpawnXMin, Random.Range(helicopterSpawnYMin, helicopterSpawnYMax)), Helicopter.transform.rotation);
-            helicopterSpawnTime = HELICOPTER_SPAWN_TIME;
+            if (helicopterSpawnTime < 0)
+            {
+
+                Instantiate(Helicopter, new Vector3(Random.Range(0f, 1f) > 0.5 ? helicopterSpawnXMax : helicopterSpawnXMin, Random.Range(helicopterSpawnYMin, helicopterSpawnYMax)), Helicopter.transform.rotation);
+                helicopterSpawnTime = HELICOPTER_SPAWN_TIME;
+            }
+
+            helicopterSpawnTime -= Time.deltaTime;
         }
+    }
 
-        helicopterSpawnTime -= Time.deltaTime;
+    public void UserDeath()
+    {
+        isGameOver = true;
+        deathScoreText.text = score.ToString();
+        blackPanel.SetActive(true);
+        gameoverUI.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Game");
     }
 }

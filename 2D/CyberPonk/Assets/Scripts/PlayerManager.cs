@@ -19,24 +19,25 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dt = Time.deltaTime;
-
-        if (Input.GetMouseButtonDown(0))
+        if (!GameManager.instance.isGameOver)
         {
-            isFired = true;
-        }
+            float dt = Time.deltaTime;
 
-        if (isFired)
-        {
-            cooldown -= dt;
-            if (cooldown <= 0)
+            if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(bullet, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
-                cooldown = RELOAD_TIME;
-                isFired = false;
+                isFired = true;
+            }
+
+            if (isFired)
+            {
+                cooldown -= dt;
+                if (cooldown <= 0)
+                {
+                    Instantiate(bullet, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+                    cooldown = RELOAD_TIME;
+                    isFired = false;
+                }
             }
         }
-
-        
     }
 }
