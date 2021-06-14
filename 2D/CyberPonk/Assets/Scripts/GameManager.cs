@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI deathScoreText;
     public GameObject blackPanel;
     public GameObject gameoverUI;
+    public GameObject gameStartUI;
 
     public static GameManager instance;
 
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public float score = 0;
     public bool isGameOver = false;
+    public bool isGameStarted = false;
     Camera cam;
     private float helicopterSpawnTime = 0;
     
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!isGameOver)
+        if (!isGameOver && isGameStarted)
         {
             scoreText.text = score.ToString();
 
@@ -71,6 +73,13 @@ public class GameManager : MonoBehaviour
         deathScoreText.text = score.ToString();
         blackPanel.SetActive(true);
         gameoverUI.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        blackPanel.SetActive(false);
+        gameStartUI.SetActive(false);
+        isGameStarted = true;
     }
 
     public void RestartGame()

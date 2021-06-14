@@ -8,18 +8,12 @@ public class PlayerManager : MonoBehaviour
     public GameObject bulletSpawnPoint;
     public GameObject bullet;
 
-    private float cooldown;
-    bool isFired = false;
-    void Start()
-    {
-        Instantiate(bullet, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
-        cooldown = RELOAD_TIME;
-    }
+    private float cooldown = 0;
+    bool isFired = true;
 
-    // Update is called once per frame
     void Update()
     {
-        if (!GameManager.instance.isGameOver)
+        if (!GameManager.instance.isGameOver && GameManager.instance.isGameStarted)
         {
             float dt = Time.deltaTime;
 
