@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public float BULLET_SPEED = 5f;
     public Rigidbody2D rb;
+    public GameObject smoke;
 
     Camera cam;
     bool isFired = false;
@@ -26,6 +27,7 @@ public class Bullet : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 isFired = true;
+                smoke.SetActive(true);
                 Vector2 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 force = new Vector2(endPoint.x - startPoint.x, endPoint.y - startPoint.y).normalized;
                 if (force.y < 0) force.y = 0;

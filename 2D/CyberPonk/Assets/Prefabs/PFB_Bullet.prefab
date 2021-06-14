@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BULLET_SPEED: 10
   rb: {fileID: 5961686703854165546}
+  smoke: {fileID: 6211771973358478617}
 --- !u!50 &5961686703854165546
 Rigidbody2D:
   serializedVersion: 4
@@ -165,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9135052187989619725
 Transform:
   m_ObjectHideFlags: 0
@@ -188,8 +189,8 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6211771973358478617}
   serializedVersion: 8
-  lengthInSec: 2
-  simulationSpeed: 1
+  lengthInSec: 5
+  simulationSpeed: 3
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
