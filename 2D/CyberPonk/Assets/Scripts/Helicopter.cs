@@ -41,6 +41,7 @@ public class Helicopter : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        ++GameManager.instance.score;
         Destroy(gameObject);
         Destroy(collision.gameObject);
         GameObject expl = Instantiate(explosion, transform.position, transform.rotation);

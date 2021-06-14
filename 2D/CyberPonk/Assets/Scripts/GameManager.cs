@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +8,8 @@ public class GameManager : MonoBehaviour
     public float HELICOPTER_SPAWN_TIME = 2f;
     public GameObject Helicopter;
     public BoxCollider2D ground;
+    public GameObject scoreBoard;
+    public TextMeshProUGUI scoreText;
 
     public static GameManager instance;
 
@@ -16,8 +19,10 @@ public class GameManager : MonoBehaviour
     public float helicopterSpawnYMin;
     public float helicopterSpawnYMax;
 
+    public float score = 0;
     Camera cam;
     private float helicopterSpawnTime = 0;
+    
     private void Awake()
     {
         if (instance == null)
@@ -35,10 +40,13 @@ public class GameManager : MonoBehaviour
 
         ground.size = new Vector2(cam.ScreenToWorldPoint(new Vector3(Screen.width, 0)).x * 3f, 1f);
         ground.offset = new Vector2(0, -cam.ScreenToWorldPoint(new Vector3(0, Screen.height)).y - 0.5f);
+        scoreBoard.transform.position = new Vector3(-cam.ScreenToWorldPoint(new Vector3(Screen.width, 0)).x + scoreBoard.GetComponent<Renderer>().bounds.size.x / 2, -cam.ScreenToWorldPoint(new Vector3(0, Screen.height)).y + scoreBoard.GetComponent<Renderer>().bounds.size.y / 2);
     }
 
     void Update()
     {
+        scoreText.text = score.ToString();
+
         if (helicopterSpawnTime < 0)
         {
 

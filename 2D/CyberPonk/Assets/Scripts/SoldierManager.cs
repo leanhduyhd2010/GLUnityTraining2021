@@ -51,6 +51,7 @@ public class SoldierManager : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Bullet"))
         {
+            ++GameManager.instance.score;
             rb.gravityScale = 1;
             rb.mass = 100;
             gameObject.layer = 8; // FallingEnemy layer
