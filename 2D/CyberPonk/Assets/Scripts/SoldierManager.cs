@@ -30,11 +30,13 @@ public class SoldierManager : MonoBehaviour
             if (!isFlying)
             {
                 animator.SetBool("Flying", isFlying);
-                transform.Translate(direction * RUN_SPEED * Time.deltaTime);
-                
-                if (transform.position.x >= -0.1f && transform.position.x <= 0.1f)
+                if (transform.position.x >= -0.2f && transform.position.x <= 0.2f)
                 {
-                    GameManager.instance.UserDeath();
+                    //GameManager.instance.UserDeath();
+                }
+                else
+                {
+                    transform.Translate(direction * RUN_SPEED * Time.deltaTime);
                 }
             }
             else

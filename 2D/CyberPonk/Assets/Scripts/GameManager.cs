@@ -86,4 +86,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+
+
 }
