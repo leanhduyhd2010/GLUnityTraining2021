@@ -54,6 +54,7 @@ public class PlayerManager : MonoBehaviour
     public IEnumerator PlayerDeath()
     {
         DestroyAllBullets();
+        GameManager.instance.isGameOver = true;
         sr.sprite = boxOnly;
         Instantiate(deathCat, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
         for (int i = 0; i < 7; i++)
@@ -65,7 +66,7 @@ public class PlayerManager : MonoBehaviour
             Destroy(expl, 0.6f);
             yield return new WaitForSeconds(0.4f);
         }
-        GameManager.instance.UserDeath();
+        GameManager.instance.ShowUserDeathScreen();
     }
 
     private void DestroyAllBullets()

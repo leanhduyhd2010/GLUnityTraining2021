@@ -67,9 +67,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UserDeath()
+    public void ShowUserDeathScreen()
     {
-        isGameOver = true;
         deathScoreText.text = score.ToString();
         blackPanel.SetActive(true);
         gameoverUI.SetActive(true);
